@@ -1,0 +1,68 @@
+{
+  "orgRepo": "YOUR_ORG/PaperRig",
+  "links": {
+    "issues": "https://github.com/GuanGuanGames/PaperRigDocs/issues",
+    "discord": "https://discord.com/invite/KRcfrXtytn"
+  },
+  "lastUpdated": "2025-08-16",
+  "columns": {
+    "now": [
+      {
+        "title": "Import Pipeline Stability",
+        "desc": "Fix edge-case crashes and improve fault tolerance; leveled logs with clearer error messages; add import consistency regression tests.",
+        "tags": ["Stability", "Interchange", "Import Flow"]
+      },
+      {
+        "title": "Migrate Import/Create Flow to Interchange",
+        "desc": "Fully move from the legacy importer to UE Interchange; unify Translator/Factory; maintain compatibility with existing assets.",
+        "tags": ["Interchange", "Compatibility", "Pipeline Migration"]
+      }
+    ],
+    "next": [
+      {
+        "title": "2D-Friendly Morph Target Editor",
+        "desc": "A morph target editor tailored for 2D workflows and common use cases.",
+        "tags": ["2D", "Animation", "Morph Target"]
+      },
+      {
+        "title": "2D-Friendly Weight Editor",
+        "desc": "Enhance the current weight-painting experience, visualization, and usability.",
+        "tags": ["2D", "Rigging", "Weights"]
+      },
+      {
+        "title": "Layer Mask Editor",
+        "desc": "WYSIWYG mask painting, blending, and preview to speed up artist iteration.",
+        "tags": ["Masking", "Editor", "2D"]
+      },
+      {
+        "title": "Layer Mask Runtime",
+        "desc": "Apply masks at runtime and expose a Blueprint API for level and gameplay integration.",
+        "tags": ["Masking", "Runtime", "Blueprint"]
+      }
+    ],
+    "later": []
+  },
+  "milestones": [
+    {
+      "date": "2025-10-15",
+      "title": "v1.0 beta",
+      "notes": "Core 2D toolchain available with base documentation."
+    }
+  ],
+  "allTags": [
+    "Stability",
+    "Interchange",
+    "Import Flow",
+    "Compatibility",
+    "Pipeline Migration",
+    "2D",
+    "Animation",
+    "Morph Target",
+    "Rigging",
+    "Weights",
+    "Masking",
+    "Editor",
+    "Runtime",
+    "Blueprint"
+  ]
+}

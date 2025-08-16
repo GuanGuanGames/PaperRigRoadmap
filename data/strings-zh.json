@@ -1,0 +1,22 @@
+{
+  "langZH": "中文",
+  "langEN": "EN",
+  "pageTitle": "PaperRig 开发计划",
+  "brand": "PaperRig Roadmap",
+  "issues": "GitHub Issues",
+  "discord": "Discord 社区",
+  "changelog": "更新日志",
+  "roadmapTitle": "PaperRig 插件公开 Roadmap",
+  "roadmapDesc": "本页面展示近期与计划中的工作。反馈与建议请在 <strong>GitHub Issues</strong> 或加入 <strong>Discord 社区</strong>。",
+  "searchPlaceholder": "搜索：关键词 / 标签",
+  "allTags": "全部标签",
+  "allAreas": "全部领域",
+  "now": "正在进行（Now）",
+  "next": "即将上线（Next）",
+  "later": "之后（Later）",
+  "tagInProgress": "进行中",
+  "tagScheduled": "排期中",
+  "tagExploring": "探索中",
+  "milestones": "里程碑 / 版本时间线",
+  "lastUpdated": "最后更新"
+}

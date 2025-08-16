@@ -1,0 +1,68 @@
+{
+  "orgRepo": "YOUR_ORG/PaperRig",
+  "links": {
+    "issues": "https://github.com/GuanGuanGames/PaperRigDocs/issues",
+    "discord": "https://discord.com/invite/KRcfrXtytn"
+  },
+  "lastUpdated": "2025-08-16",
+  "columns": {
+    "now": [
+      {
+        "title": "导入管线稳定性",
+        "desc": "修复边缘案例崩溃并增强容错；提供分级日志与更清晰的错误提示；新增导入一致性回归测试。",
+        "tags": ["稳定性", "Interchange", "导入流程"]
+      },
+      {
+        "title": "导入/创建流程切换到 Interchange",
+        "desc": "将旧导入器全面迁移至 UE Interchange；统一 Translator/Factory；保持既有资产的兼容与可用性。",
+        "tags": ["Interchange", "兼容性", "管线迁移"]
+      }
+    ],
+    "next": [
+      {
+        "title": "2D 友好的形态键编辑器",
+        "desc": "面向 2D 流程的形态键（Morph Target）编辑器，覆盖常见用例与操作习惯。",
+        "tags": ["2D", "动画", "形态键"]
+      },
+      {
+        "title": "2D 友好的权重编辑器",
+        "desc": "增强现有权重编辑体验，优化刷权、显示与结果可视化。",
+        "tags": ["2D", "绑定", "权重"]
+      },
+      {
+        "title": "图层遮罩编辑器",
+        "desc": "所见即所得的遮罩绘制、混合与预览，提升美术迭代效率。",
+        "tags": ["遮罩", "编辑器", "2D"]
+      },
+      {
+        "title": "图层遮罩运行时",
+        "desc": "在运行时应用遮罩，并提供 Blueprint API 以便关卡与玩法集成。",
+        "tags": ["遮罩", "运行时", "Blueprint"]
+      }
+    ],
+    "later": []
+  },
+  "milestones": [
+    {
+      "date": "2025-08-16",
+      "title": "v1.0 beta",
+      "notes": "基础 2D 工具链可用，并提供基础文档。"
+    }
+  ],
+  "allTags": [
+    "稳定性",
+    "Interchange",
+    "导入流程",
+    "兼容性",
+    "管线迁移",
+    "2D",
+    "动画",
+    "形态键",
+    "绑定",
+    "权重",
+    "遮罩",
+    "编辑器",
+    "运行时",
+    "Blueprint"
+  ]
+}

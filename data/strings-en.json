@@ -1,0 +1,22 @@
+{
+  "langZH": "中文",
+  "langEN": "EN",
+  "pageTitle": "PaperRig Roadmap",
+  "brand": "PaperRig Roadmap",
+  "issues": "GitHub Issues",
+  "discord": "Discord",
+  "changelog": "Changelog",
+  "roadmapTitle": "Public Roadmap for PaperRig",
+  "roadmapDesc": "This page presents recent and planned work. Please submit feedback on <strong>GitHub Issues</strong> or join our <strong>Discord</strong>.",
+  "searchPlaceholder": "Search: keywords or tags",
+  "allTags": "All tags",
+  "allAreas": "All areas",
+  "now": "Now",
+  "next": "Next",
+  "later": "Later",
+  "tagInProgress": "In progress",
+  "tagScheduled": "Scheduled",
+  "tagExploring": "Exploring",
+  "milestones": "Milestones / Releases",
+  "lastUpdated": "Last updated"
+}

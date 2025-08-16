@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PaperRig Roadmap</title>
+  <meta name="description" content="Public roadmap for the PaperRig UE plugin. Feedback via GitHub Issues / Discord." />
+  <style>
+    :root{
+      --bg:#0b0c0f; --fg:#eaeef4; --muted:#a3b0c2; --card:#11131a; --accent:#7dd3fc; --ok:#22c55e; --warn:#f59e0b; --done:#60a5fa; --border:#1e2230;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7fafc; --fg:#0b1220; --muted:#475569; --card:#ffffff; --accent:#007aff; --ok:#16a34a; --warn:#b45309; --done:#2563eb; --border:#e5e7eb; }
+    }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .container{ max-width:1100px; margin:0 auto; padding:24px; }
+    header{ display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; }
+    .brand{ font-weight:800; font-size:22px; letter-spacing:.2px; }
+    .links{ display:flex; gap:12px; flex-wrap:wrap; }
+    .btn{ padding:8px 12px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--fg); display:inline-flex; gap:8px; align-items:center; cursor:pointer; }
+    .btn[aria-pressed="true"]{ outline:2px solid var(--accent); }
+    .btn:hover{ border-color:var(--accent); }
+    .hero{ margin:20px 0 8px; }
+    .hero h1{ margin:0 0 8px; font-size:28px; }
+    .muted{ color:var(--muted); }
+    .grid{ display:grid; gap:16px; }
+    .columns{ grid-template-columns:repeat(3, 1fr); }
+    @media (max-width: 900px){ .columns{ grid-template-columns:1fr; } }
+    .card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:14px; }
+    .card h3{ margin:0 0 6px; font-size:18px; }
+    .tag{ font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--border); display:inline-block; margin-right:6px; }
+    .tag.ok{ border-color:var(--ok); }
+    .tag.warn{ border-color:var(--warn); }
+    .tag.done{ border-color:var(--done); }
+    ul.clean{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+    .item{ padding:10px; border:1px dashed var(--border); border-radius:12px; }
+    .item small{ color:var(--muted); }
+    .controls{ display:flex; gap:10px; flex-wrap:wrap; margin:16px 0; }
+    input[type="search"], select{ background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:12px; padding:8px 12px; }
+    .timeline{ position:relative; padding-left:18px; }
+    .timeline::before{ content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:var(--border); }
+    .milestone{ position:relative; margin:10px 0; padding-left:10px; }
+    .milestone::before{ content:""; position:absolute; left:-2px; top:.6em; width:10px; height:10px; background:var(--accent); border-radius:50%; }
+    footer{ margin:24px 0 12px; font-size:14px; color:var(--muted); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand" id="brand">PaperRig Roadmap</div>
+      <nav class="links">
+        <button class="btn" id="lang-zh" type="button" aria-pressed="false">中文</button>
+        <button class="btn" id="lang-en" type="button" aria-pressed="false">EN</button>
+        <a class="btn" id="link-issues" target="_blank" rel="noopener">GitHub Issues</a>
+        <a class="btn" id="link-discord" target="_blank" rel="noopener">Discord</a>
+        <a class="btn" href="#changelog" id="link-changelog">Changelog</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 id="title">Public Roadmap for PaperRig</h1>
+      <p class="muted" id="desc">This page presents recent and planned work. Please submit feedback on GitHub Issues or join our Discord.</p>
+    </section>
+
+    <div class="controls" aria-label="filters">
+      <input id="search" type="search" placeholder="Search: keywords or tags" aria-label="Search" />
+      <select id="filterTag" aria-label="Filter by tag">
+        <option value="">All tags</option>
+      </select>
+      <select id="filterArea" aria-label="Filter by area">
+        <option value="">All areas</option>
+      </select>
+    </div>
+
+    <section class="grid columns" id="roadmap">
+      <article class="card">
+        <h3 id="now-title">Now <span class="tag ok">In progress</span></h3>
+        <ul class="clean" id="list-now"></ul>
+      </article>
+      <article class="card">
+        <h3 id="next-title">Next <span class="tag warn">Scheduled</span></h3>
+        <ul class="clean" id="list-next"></ul>
+      </article>
+      <article class="card">
+        <h3 id="later-title">Later <span class="tag">Exploring</span></h3>
+        <ul class="clean" id="list-later"></ul>
+      </article>
+    </section>
+
+    <section class="card" id="changelog" style="margin-top:16px;">
+      <h3 id="milestone-title">Milestones / Releases</h3>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <footer>
+      <div><span id="last-label">Last updated: </span><span id="last-update">—</span></div>
+      <div id="footer">© <span id="year"></span> PaperRig · Powered by GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script>
+    const $ = (sel)=>document.querySelector(sel);
+    const byId = (id)=>document.getElementById(id);
+
+    function esc(s){ return (s||'').toString().replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+    function parseIssueNumber(issue){
+      if(!issue) return null;
+      const m = String(issue).match(/#?(\d+)/);
+      return m ? m[1] : null;
+    }
+
+    function itemHTML(it, orgRepo){
+      const num = parseIssueNumber(it.issue);
+      const issueLink = num ? `<small> · <a href="https://github.com/${orgRepo}/issues/${num}" target="_blank" rel="noopener">#${num}</a></small>` : "";
+      const tags = (it.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+      return `<li class="item" data-area="${esc(it.area||'')}" data-tags="${esc((it.tags||[]).join(','))}">
+        <div><strong>${esc(it.title)}</strong>${issueLink}</div>
+        <div class="muted">${esc(it.desc||'')}</div>
+        <div style="margin-top:6px;">${tags}</div>
+      </li>`;
+    }
+
+    function fillColumn(id, items, orgRepo){ byId(id).innerHTML = (items||[]).map(it=>itemHTML(it, orgRepo)).join(""); }
+
+    function buildTimeline(milestones){
+      const wrap = byId('timeline');
+      const ms = [...(milestones||[])].sort((a,b)=>a.date.localeCompare(b.date));
+      wrap.innerHTML = ms.map(m=>`<div class="milestone">
+        <div><strong>${esc(m.title)}</strong> <small class="muted">${esc(m.date)}</small></div>
+        <div class="muted">${esc(m.notes||'')}</div>
+        ${m.link?`<div><a href="${esc(m.link)}" target="_blank" rel="noopener">Details</a></div>`:''}
+      </div>`).join('');
+    }
+
+    function populateTagFilter(allTags, strings){
+      const tagSel = byId('filterTag');
+      tagSel.innerHTML = `<option value="">${esc(strings.allTags)}</option>`;
+      [...new Set(allTags||[])].sort().forEach(t=>{
+        const opt = document.createElement('option'); opt.value = t; opt.textContent = t; tagSel.appendChild(opt);
+      });
+    }
+
+    function populateAreaFilter(columns, strings){
+      const areaSel = byId('filterArea');
+      const set = new Set();
+      ['now','next','later'].forEach(col => (columns[col]||[]).forEach(it => it.area && set.add(it.area)));
+      areaSel.innerHTML = `<option value="">${esc(strings.allAreas)}</option>`;
+      [...set].sort().forEach(a=>{
+        const opt = document.createElement('option'); opt.value = a; opt.textContent = a; areaSel.appendChild(opt);
+      });
+    }
+
+    function initFilters(strings){
+      function apply(){
+        const q = (byId('search').value||'').toLowerCase();
+        const tag = byId('filterTag').value;
+        const area = byId('filterArea').value;
+        document.querySelectorAll('.item').forEach(li=>{
+          const hay = li.textContent.toLowerCase();
+          const okQ = !q || hay.includes(q);
+          const okTag = !tag || (li.dataset.tags||'').split(',').includes(tag);
+          const okArea = !area || (li.dataset.area===area);
+          li.style.display = (okQ && okTag && okArea) ? '' : 'none';
+        });
+      }
+      byId('search').placeholder = strings.searchPlaceholder;
+      byId('search').addEventListener('input', apply);
+      byId('filterTag').addEventListener('change', apply);
+      byId('filterArea').addEventListener('change', apply);
+      apply();
+    }
+
+    function setLangUI(strings){
+      document.title = strings.pageTitle;
+      byId('brand').textContent = strings.brand;
+      byId('link-issues').textContent = strings.issues;
+      byId('link-discord').textContent = strings.discord;
+      byId('link-changelog').textContent = strings.changelog;
+      byId('title').textContent = strings.roadmapTitle;
+      byId('desc').innerHTML = strings.roadmapDesc;
+      byId('now-title').innerHTML = `${strings.now} <span class="tag ok">${strings.tagInProgress}</span>`;
+      byId('next-title').innerHTML = `${strings.next} <span class="tag warn">${strings.tagScheduled}</span>`;
+      byId('later-title').innerHTML = `${strings.later} <span class="tag">${strings.tagExploring}</span>`;
+      byId('milestone-title').textContent = strings.milestones;
+      byId('last-label').textContent = strings.lastUpdated + ' ';
+      byId('year').textContent = new Date().getFullYear();
+      byId('lang-zh').setAttribute('aria-pressed', String(strings.lang === 'zh'));
+      byId('lang-en').setAttribute('aria-pressed', String(strings.lang === 'en'));
+      byId('lang-zh').textContent = strings.langZH;
+      byId('lang-en').textContent = strings.langEN;
+    }
+
+    async function fetchJSON(path){
+      const res = await fetch(path, {cache:'no-store'});
+      if(!res.ok) throw new Error('fetch failed: ' + path);
+      return res.json();
+    }
+
+    async function load(lang){
+      const pref = lang || localStorage.getItem('roadmap_lang') || ((navigator.language||'').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+      let use = pref;
+      let strings = null;
+      let data = null;
+      try {
+        [strings, data] = await Promise.all([
+          fetchJSON(`./data/strings-${use}.json`),
+          fetchJSON(`./data/roadmap.${use}.json`)
+        ]);
+      } catch(e){
+        use = (use === 'zh') ? 'en' : 'zh';
+        [strings, data] = await Promise.all([
+          fetchJSON(`./data/strings-${use}.json`),
+          fetchJSON(`./data/roadmap.${use}.json`)
+        ]);
+      }
+      strings.lang = use;
+      localStorage.setItem('roadmap_lang', use);
+      return {strings, data, lang: use};
+    }
+
+    function render(strings, data){
+      setLangUI(strings);
+      byId('link-issues').href = data.links.issues;
+      byId('link-discord').href = data.links.discord;
+      const orgRepo = data.orgRepo || 'YOUR_ORG/PaperRig';
+
+      fillColumn('list-now',   (data.columns||{}).now,   orgRepo);
+      fillColumn('list-next',  (data.columns||{}).next,  orgRepo);
+      fillColumn('list-later', (data.columns||{}).later, orgRepo);
+      buildTimeline(data.milestones);
+      populateTagFilter(data.allTags, strings);
+      populateAreaFilter(data.columns, strings);
+      initFilters(strings);
+      byId('last-update').textContent = data.lastUpdated || new Date().toISOString().slice(0,10);
+    }
+
+    async function boot(lang){
+      try{
+        const {strings, data, lang:use} = await load(lang);
+        render(strings, data);
+      }catch(e){
+        console.error(e);
+        byId('title').textContent = 'Failed to load roadmap data.';
+      }
+    }
+
+    byId('lang-zh').addEventListener('click', ()=> boot('zh'));
+    byId('lang-en').addEventListener('click', ()=> boot('en'));
+    boot();
+  </script>
+</body>
+</html>
